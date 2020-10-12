@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: student-api-server
+  name: student-api-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: student-api-server
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: student-api-server
+    spec:
+      containers:
+      - image: students-api-server:v1
+        name: students-api-server
+        resources:
+          requests:
+            memory: "1000Mi"
+            cpu: "1"
+          limits:
+            memory: "1500Mi"
+            cpu: "2"
