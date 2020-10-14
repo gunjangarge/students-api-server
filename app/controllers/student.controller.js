@@ -18,6 +18,11 @@ exports.create = (req, res) => {
         country: req.body.country
     };
 
+    var i=0;
+    while (i < 1e5) i++;
+    console.log("counted till " + i);
+
+
     Student.create(student)
         .then(data => {
             res.send(data);
@@ -57,7 +62,9 @@ exports.findAll = (req, res) => {
         condition = { country: { [Op.iLike]: `%${country}%` } }
     }
 
-    console.log(condition);
+    var i=0;
+    while (i < 1e5) i++;
+    console.log("counted till " + i);
 
     Student.findAll({ where: condition })
         .then(data => {
@@ -87,6 +94,11 @@ exports.findOne = (req, res) => {
 };
 exports.update = (req, res) => {
     const id = req.params.id;
+    
+    var i=0;
+    while (i < 1e5) i++;
+    console.log("counted till " + i);
+    
     Student.update(req.body, {
         where: { id: id }
     })
@@ -110,6 +122,11 @@ exports.update = (req, res) => {
 };
 exports.delete = (req, res) => {
     const id = req.params.id;
+    
+    var i=0;
+    while (i < 1e5) i++;
+    console.log("counted till " + i);
+    
     Student.destroy({
         where: { id: id }
     })
@@ -131,6 +148,11 @@ exports.delete = (req, res) => {
         })
 };
 exports.deleteAll = (req, res) => {
+
+    var i=0;
+    while (i < 1e5) i++;
+    console.log("counted till " + i);
+    
     Student.destroy({
         where: {},
         truncate: false
